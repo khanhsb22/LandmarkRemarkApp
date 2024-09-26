@@ -16,3 +16,8 @@ I'm using GoogleMap api to show map and create all note marker point
 (1.5 day) For create all functions in MainActivity: Show note, 
 view detail note, search, add note,...
 (0.3 day) For test app and fix bugs
+
+## Config
+
+MAPS_API_KEY is Google map API key, create it at: https://console.cloud.google.com/apis/credentials
+Fill it into: local.properties file and MainActivity.kt file
