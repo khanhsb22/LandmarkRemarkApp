@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:padding="@dimen/dimen16dp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:text="Add new note"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen17sp"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/imvClose"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/close"/>
+
+    </RelativeLayout>
+
+    <EditText
+        android:padding="@dimen/dimen8dp"
+        android:background="@drawable/note_content_bgr"
+        android:layout_marginTop="@dimen/dimen16dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen120dp"
+        android:hint="Type your note content..."
+        android:textColor="@color/black"
+        android:inputType="textMultiLine"
+        android:maxLines="5"
+        android:maxLength="150"
+        android:gravity="top"
+        android:id="@+id/edtContent"
+        android:textSize="@dimen/dimen14sp"/>
+
+    <Button
+        android:layout_marginTop="@dimen/dimen10dp"
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_bgr"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textSize="@dimen/dimen14sp"
+        android:text="Save"/>
+</LinearLayout>

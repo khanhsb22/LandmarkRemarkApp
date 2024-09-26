@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.MainActivity">
+
+    <RelativeLayout
+        android:layout_margin="@dimen/dimen8dp"
+        android:id="@+id/rlHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_centerVertical="true"
+            android:id="@+id/edtSearch"
+            android:hint="Search..."
+            android:textStyle="italic"
+            android:layout_width="match_parent"
+            android:layout_toLeftOf="@id/imvSearch"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen16dp"
+            android:layout_toLeftOf="@+id/btnLogout"
+            android:id="@+id/imvSearch"
+            android:layout_width="wrap_content"
+            android:src="@drawable/search"
+            android:layout_height="@dimen/dimen35dp"
+            />
+
+
+        <Button
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/btnLogout"
+            android:layout_width="@dimen/dimen50dp"
+            android:layout_height="@dimen/dimen30dp"
+            android:background="@drawable/logout_bgr"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:textSize="@dimen/dimen12sp"
+            android:text="Logout"/>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_above="@+id/lnInput"
+        android:layout_below="@+id/rlHeader"
+        android:id="@+id/flMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.MainActivity" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_marginBottom="@dimen/dimen50dp"
+            android:layout_marginRight="@dimen/dimen16dp"
+            android:layout_gravity="bottom|right"
+            android:id="@+id/fabAddNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/add"
+            android:backgroundTint="@color/white"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_marginBottom="@dimen/dimen50dp"
+            android:layout_marginLeft="@dimen/dimen16dp"
+            android:layout_gravity="bottom"
+            android:id="@+id/fabCurrent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/gps"
+            android:backgroundTint="@color/white"
+            />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:id="@+id/pbLoadingSearch"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:indeterminate="true"
+            android:indeterminateTintMode="src_atop"
+            android:indeterminateTint="@color/blue"
+            android:layout_height="wrap_content"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:background="@color/yellow"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/lnInput"
+        android:padding="@dimen/dimen12dp"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:text="Add new note"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen17sp"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/imvClose"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/close"/>
+
+        </RelativeLayout>
+
+        <EditText
+            android:padding="@dimen/dimen8dp"
+            android:background="@drawable/note_content_bgr"
+            android:layout_marginTop="@dimen/dimen16dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen120dp"
+            android:hint="Type your note content..."
+            android:textColor="@color/black"
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:maxLength="150"
+            android:gravity="top"
+            android:id="@+id/edtContent"
+            android:textSize="@dimen/dimen14sp"/>
+
+        <Button
+            android:layout_marginTop="@dimen/dimen10dp"
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bgr"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:textSize="@dimen/dimen14sp"
+            android:text="Save"/>
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tvAddNoteSuccess"
+            android:layout_marginTop="@dimen/dimen8dp"
+            android:layout_marginBottom="@dimen/dimen8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add new note success!"
+            android:textColor="@color/green"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:background="@color/blue_detail"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/lnDetail"
+        android:padding="@dimen/dimen12dp"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/delete"
+                android:id="@+id/imvDeleteNote"/>
+
+            <TextView
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:text="Detail note"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen17sp"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/imvCloseDetail"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/close"/>
+
+        </RelativeLayout>
+
+       <TextView
+           android:layout_marginTop="@dimen/dimen15dp"
+           android:id="@+id/tvUsername"
+           android:textColor="@color/black"
+           android:textSize="@dimen/dimen14sp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/dimen8dp"
+            android:id="@+id/tvContent"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen14sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/dimen8dp"
+            android:id="@+id/tvSavedAt"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen14sp"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/dimen32dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:background="@color/light_green"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/lnSearch"
+        android:padding="@dimen/dimen12dp"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:text="Search Result"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen17sp"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/imvCloseSearch"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/close"/>
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_marginBottom="@dimen/dimen32dp"
+            android:layout_marginTop="@dimen/dimen16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:text="No results were found!"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen15sp"
+                android:id="@+id/tvSearchEmpty"
+                android:textStyle="italic"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </FrameLayout>
+    </LinearLayout>
+</RelativeLayout>

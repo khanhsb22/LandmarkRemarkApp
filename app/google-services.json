@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "994008824798",
+    "project_id": "tigerspikeapp",
+    "storage_bucket": "tigerspikeapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:994008824798:android:934f7802f4cd1d78e1bb4f",
+        "android_client_info": {
+          "package_name": "com.example.tigerspikeapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnGG7F8Ny6jwS4pEArmRfjpAGWnz-JUfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
